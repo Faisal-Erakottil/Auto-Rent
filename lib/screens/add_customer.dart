@@ -1,6 +1,3 @@
-
-
-
 // ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
 import 'dart:io';
@@ -100,7 +97,7 @@ class _AddCustomerState extends State<AddCustomer> {
               ),
               centerTitle: true,
               title: CustomText(
-                text:"ADD CUSTOMER",
+                text: "ADD CUSTOMER",
                 size: 18,
                 fontWeight: FontWeight.w600,
               ),
@@ -119,6 +116,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         fieldName: 'Car Name',
                         controller: carnameController,
                         keyboardType: TextInputType.text,
+                        prefixIcon: Icons.abc,
                         enable: false,
                       ),
                       const Gap(15),
@@ -127,6 +125,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         labelText: 'Daily Rent',
                         fieldName: 'Daily Rent',
                         controller: carrentcontroller,
+                        prefixIcon: Icons.currency_rupee,
                       ),
                       const Gap(15),
                       CustomTextField(
@@ -134,6 +133,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         fieldName: 'Car Reg Number',
                         keyboardType: TextInputType.text,
                         controller: carRegController,
+                        prefixIcon: Icons.pin,
                         enable: false,
                       ),
                       const Gap(15),
@@ -142,6 +142,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         fieldName: 'customer Name',
                         controller: customerNameController,
                         keyboardType: TextInputType.text,
+                        prefixIcon: Icons.abc,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Value is empty';
@@ -151,28 +152,26 @@ class _AddCustomerState extends State<AddCustomer> {
                         },
                       ),
                       const Gap(15),
-                      TextFormField(
-                        style: TextStyle(color: CustomColor.black),
-                        decoration: const InputDecoration(
+                      CustomTextField(
                           labelText: 'Mobile Number',
-                          hintText: 'Mobile Number',
-                        ),
-                        controller: mobileNumberController,
-                        keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a mobile number';
-                          }
-                          if (value.length != 10) {
-                            return 'Mobile number must be 10 digits';
-                          }
-                          return null;
-                        },
-                      ),
+                          fieldName: 'Mobile Number',
+                          controller: mobileNumberController,
+                          keyboardType: TextInputType.number,
+                          prefixIcon: Icons.phone_iphone,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter a mobile number';
+                            }
+                            if (value.length != 10) {
+                              return 'Mobile number must be 10 digits';
+                            }
+                            return null;
+                          }),
                       const Gap(15),
                       TextFormField(
                         style: TextStyle(color: CustomColor.black),
                         decoration: const InputDecoration(
+                          icon: Icon(Icons.add_card),
                           labelText: 'License Number',
                           hintText: 'License Number',
                         ),
@@ -224,7 +223,7 @@ class _AddCustomerState extends State<AddCustomer> {
                       ),
                       const Gap(15),
                       TextFormField(
-                       style: TextStyle(color: CustomColor.black),
+                        style: TextStyle(color: CustomColor.black),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: const InputDecoration(
                           icon: Icon(Icons.access_time),
@@ -290,6 +289,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         fieldName: 'Security Deposit',
                         controller: securityDepositController,
                         keyboardType: TextInputType.number,
+                        prefixIcon: Icons.currency_rupee,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Value is empty';
@@ -307,8 +307,7 @@ class _AddCustomerState extends State<AddCustomer> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15),
                               ),
-                              backgroundColor:
-                                   CustomColor.black,
+                              backgroundColor: CustomColor.black,
                               fixedSize: const Size(300, 30),
                             ),
                             onPressed: () async {
@@ -316,11 +315,10 @@ class _AddCustomerState extends State<AddCustomer> {
                                 removeCarFromScreen(widget.selectedCar!);
                                 await saveCus();
                               }
-                           
                             },
                             child: CustomText(
                               text: 'SAVE DETAILS',
-                             fontWeight: FontWeight.bold,                           
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],

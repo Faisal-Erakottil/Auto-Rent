@@ -46,11 +46,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
     getAllCustomers();
     customerListNotifier.addListener(_onCustomerListChanged);
   }
+
   @override
   void dispose() {
     customerListNotifier.removeListener(_onCustomerListChanged);
     super.dispose();
   }
+
   void _onCustomerListChanged() {
     generateNotifications(customerListNotifier.value);
   }
@@ -83,6 +85,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColor.white,
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -104,7 +107,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           size: 18,
           fontWeight: FontWeight.bold,
         ),
-        backgroundColor: CustomColor.black
+        backgroundColor: CustomColor.black,
       ),
       body: ValueListenableBuilder<Box<CustomerModel>>(
         valueListenable: Boxes.getCustomerData().listenable(),
@@ -126,7 +129,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: Card(
                     color: Colors.white,
-                    elevation: 5,
                     child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(
@@ -192,8 +194,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                                 style: const TextStyle(
                                                   fontSize: 19,
                                                   fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(
-                                                      255, 62, 133, 64),
+                                                  color: CustomColor.blue,
                                                   decoration:
                                                       TextDecoration.underline,
                                                 ),
@@ -220,9 +221,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
               },
             );
           }
-          
         }),
-
       ),
     );
   }

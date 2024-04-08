@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_string_interpolations, use_super_parameters
 
 import 'dart:io';
+import 'package:autorent/screens/History.dart';
 import 'package:autorent/screens/settings/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:autorent/dataModels/usermodel.dart';
@@ -60,20 +61,21 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            const SizedBox(height: 20),
                             CustomText(
-                              text: '${userDetails.name}',
+                              text: ' ${userDetails.name}',
                               size: 20,
                               color: CustomColor.blue,
                               fontWeight: FontWeight.bold,
                             ),
                             CustomText(
-                              text: '${userDetails.mobile}',
+                              text: ' ${userDetails.mobile}',
                               size: 20,
                               color: CustomColor.blue,
                               fontWeight: FontWeight.w600,
                             ),
                             CustomText(
-                              text: '${userDetails.email}',
+                              text: ' ${userDetails.email}',
                               size: 20,
                               color: CustomColor.blue,
                               fontWeight: FontWeight.w600,
@@ -83,6 +85,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       ],
                     ),
                   ),
+                  //=========================================User Details
                   CustomList(
                     leadingIcon: Icons.person,
                     title: "User Details",
@@ -95,30 +98,20 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       );
                     },
                   ),
-                  // CustomList(
-                  //   leadingIcon: Icons.people,
-                  //   title: "Customer List",
-                  //   onTap: () {
-                  //     // Navigator.push(
-                  //     //   context,
-                  //     //   MaterialPageRoute(
-                  //     //     builder: (context) => const Customer(),
-                  //     //   ),
-                  //     // );
-                  //   },
-                  // ),
+                  //==========================================History
                   CustomList(
                     title: "History",
                     leadingIcon: Icons.currency_rupee,
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => const Revenue(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const History(),
+                        ),
+                      );
                     },
                   ),
+                  //===========================================Settings
                   CustomList(
                     title: "Settings",
                     leadingIcon: Icons.settings,
@@ -131,6 +124,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       );
                     },
                   ),
+                  //====================================app varsion
                   const SizedBox(height: 500),
                   const Column(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -156,20 +150,25 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   );
                 },
               );
-              return Center(
-                child: CustomList(
-                  leadingIcon: Icons.person,
-                  title: "User Details",
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Userdetails(),
-                      ),
-                    );
-                  },
-                ),
-                //child: CircularProgressIndicator(),
+              return Column(
+                children: [
+                  const CustomText(
+                    text: "fill up and enjoy",
+                    color: CustomColor.black,
+                  ),
+                  CustomList(
+                    leadingIcon: Icons.person,
+                    title: "User Details",
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Userdetails(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               );
             }
           },

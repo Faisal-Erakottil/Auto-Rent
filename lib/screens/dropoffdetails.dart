@@ -343,7 +343,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
               });
         });
   }
-
+//=====================================================calculations 
   double calculateTotalRent(
     DateTime pickupDateTime,
     DateTime dropOffDateTime,

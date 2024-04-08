@@ -80,7 +80,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 filled: true,
-                fillColor: const Color.fromARGB(255, 240, 251, 252),
+                fillColor: CustomColor.white,
               ),
             ),
           ),

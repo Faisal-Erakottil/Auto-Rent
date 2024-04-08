@@ -153,23 +153,22 @@ class _UserdetailsState extends State<Userdetails> {
                     backgroundColor: Colors.blue,
                   ),
                   onPressed: () {
-                    // setState(() {
-                    //   nameController.text.isEmpty
-                    //       ? validateName = true
-                    //       : validateName = false;
-                    //   mobController.text.isEmpty
-                    //       ? validateMobileNumber = true
-                    //       : validateMobileNumber = false;
-                    //   emailController.text.isEmpty
-                    //       ? validateEmail = true
-                    //       : validateEmail = false;
-                    //   imagepath = null;
-                    // });
+                    setState(() {
+                      nameController.text.isEmpty
+                          ? validateName = true
+                          : validateName = false;
+                      mobController.text.isEmpty
+                          ? validateMobileNumber = true
+                          : validateMobileNumber = false;
+                      emailController.text.isEmpty
+                          ? validateEmail = true
+                          : validateEmail = false;
+                      imagepath = null;
+                    });
                     if (validateName == false &&
                         validateMobileNumber == false &&
                         validateEmail == false &&
-                        selectedImage != null 
-                        ) {
+                        selectedImage != null) {
                       UserModel(
                         name: nameController.text,
                         mobile: mobController.text,
@@ -179,7 +178,7 @@ class _UserdetailsState extends State<Userdetails> {
                     }
                     saveDetails();
 
-                   // onAddSaveButtonClicked();
+                    // onAddSaveButtonClicked();
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
@@ -205,54 +204,56 @@ class _UserdetailsState extends State<Userdetails> {
     );
   }
 
-  // Future<void> onAddSaveButtonClicked() async {
-  //   final _name = nameController.text.trim();
-  //   //print('$_name');
-  //   final _mobile = mobController.text.trim();
-  //   //print('$_mobile');
-  //   final _email = emailController.text.trim();
-  //   //print('$_email');
-  //   if (imagepath == null ||
-  //       _name.isEmpty ||
-  //       _mobile.isEmpty ||
-  //       _email.isEmpty) {
-  //     return;
-  //   }
-  //   final userDetails = UserModel(
-  //     name: _name,
-  //     mobile: _mobile,
-  //     email: _email,
-  //     image: imagepath?.path ?? "",
-  //   );
-  //   //  print(userDetails);
-  //   // Pass the user details back to the previous screen (HomeScreen)
-  //   Navigator.pop(context, userDetails);
-  // }
+  Future<void> onAddSaveButtonClicked() async {
+    final _name = nameController.text.trim();
+    //print('$_name');
+    final _mobile = mobController.text.trim();
+    //print('$_mobile');
+    final _email = emailController.text.trim();
+    //print('$_email');
+    if (imagepath == null ||
+        _name.isEmpty ||
+        _mobile.isEmpty ||
+        _email.isEmpty) {
+      return;
+    }
+    final userDetails = UserModel(
+      name: _name,
+      mobile: _mobile,
+      email: _email,
+      image: imagepath?.path ?? "",
+    );
+    //  print(userDetails);
+    // Pass the user details back to the previous screen (HomeScreen)
+    Navigator.pop(context, userDetails);
+  }
 
   Future<void> saveDetails() async {
-   // onAddSaveButtonClicked();
+    // onAddSaveButtonClicked();
     final name = nameController.text.trim();
     //print(name);
     final mobile = mobController.text.trim();
     //print(mobile);
     final email = emailController.text.trim();
     //print(email);
-    final image = imagepath?.path;
+    //final image = imagepath?.path;
     //print(image);
-
+    if (imagepath == null || name.isEmpty || mobile.isEmpty || email.isEmpty) {
+      return;
+    }
     // // Save the input data to Hive
     final userDetails = UserModel(
       name: name,
       mobile: mobile,
       email: email,
-      image: image!,
+      image: imagepath?.path ?? "",
     );
     //print(userDetails);
-    
+
     await addUser(userDetails);
-    //getAllData();
-    // final box = Boxes.getUser();
-    // box.put("user_db", userDetails);
+    getAllData();
+    //final box = Boxes.getUser();
+    //box.put("user_db", userDetails);
 
     // Navigate back to the HomeScreen or perform any other action
     //Navigator.pop(context);
