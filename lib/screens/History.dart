@@ -17,7 +17,7 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
-  int indexNum = 0;
+  int indexNum = 1;
   List<CarModel> searchCarResults = [];
   List<CustomerModel> searchCustomerResults = [];
   @override
@@ -29,7 +29,7 @@ class _HistoryState extends State<History> {
   void performSearch(String query) {
     setState(() {
       searchCarResults = searchCars(query);
-      searchCustomerResults = searchCustomers(query);
+      searchCustomerResults = customerHistory(query);
     });
   }
 
@@ -55,55 +55,13 @@ class _HistoryState extends State<History> {
         centerTitle: true,
         title: const CustomText(
           text: "History",
-          fontWeight: FontWeight.w600,
+          size: 18,
+          fontWeight: FontWeight.bold,
         ),
         backgroundColor: Colors.black,
       ),
       body: Column(
         children: [
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.all(10.0),
-          //       child: Row(
-          //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //         children: [
-          //           ElevatedButton(
-          //             onPressed: () {},
-          //             style: ElevatedButton.styleFrom(
-          //               backgroundColor: CustomColor.white,
-          //             ),
-          //             child: const CustomText(
-          //               text: "All days",
-          //               color: CustomColor.black,
-          //             ),
-          //           ),
-          //           ElevatedButton(
-          //             style: ElevatedButton.styleFrom(
-          //               backgroundColor: CustomColor.white,
-          //             ),
-          //             onPressed: () {},
-          //             child: const CustomText(
-          //               text: "This Week",
-          //               color: CustomColor.black,
-          //             ),
-          //           ),
-          //           ElevatedButton(
-          //             style: ElevatedButton.styleFrom(
-          //               backgroundColor: CustomColor.white,
-          //             ),
-          //             onPressed: () {},
-          //             child: const CustomText(
-          //               text: "This Month",
-          //               color: CustomColor.black,
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //   ],
-          // ),
           for (var customer in searchCustomerResults)
             Padding(
               padding: const EdgeInsets.all(8.0),

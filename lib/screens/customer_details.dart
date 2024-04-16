@@ -58,27 +58,26 @@ class _CustomerDetailsState extends State<CustomerDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(20),
+            ),
           ),
-        ),
-        leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
-            )),
-        centerTitle: true,
-        title:CustomText(
-          text: "CUSTOMER DETAILS",
-          size: 18,
-          fontWeight: FontWeight.bold,
-        ),
-        backgroundColor: CustomColor.black
-      ),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              )),
+          centerTitle: true,
+          title: CustomText(
+            text: "CUSTOMER DETAILS",
+            size: 18,
+            fontWeight: FontWeight.bold,
+          ),
+          backgroundColor: CustomColor.black),
       body: ValueListenableBuilder<Box<CustomerModel>>(
         valueListenable: Boxes.getCustomerData().listenable(),
         builder:
@@ -108,156 +107,109 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                             "Customer name",
                             style: TextStyle(
                               fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.teal,
+                              fontWeight: FontWeight.bold,
+                              color: CustomColor.blue,
                             ),
                           ),
-                          Text(
-                            widget.customer.customerName,
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
+                          CustomText(
+                              text: widget.customer.customerName,
+                              color: CustomColor.black),
                         ],
                       ),
                       const SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "Rent out car",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.teal,
-                            ),
+                          const CustomText(
+                            text: "Rent out car",
+                            fontWeight: FontWeight.bold,
+                            color: CustomColor.blue,
                           ),
-                          Text(
-                            widget.customer.carname,
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
+                          CustomText(
+                              text: widget.customer.carname,
+                              color: CustomColor.black),
                         ],
                       ),
                       const SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "Mobile number",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.teal,
-                            ),
+                          const CustomText(
+                            text: "Mobile number",
+                            color: CustomColor.blue,
                           ),
-                          Text(
-                            widget.customer.mobileNumber,
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
+                          CustomText(
+                              text: widget.customer.mobileNumber,
+                              color: CustomColor.black),
                         ],
                       ),
                       const SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "License number",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.teal,
-                            ),
+                          const CustomText(
+                            text: "License number",
+                            color: CustomColor.blue,
                           ),
-                          Text(
-                            widget.customer.licenseNumber,
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
+                          CustomText(
+                              text: widget.customer.licenseNumber,
+                              color: CustomColor.black),
                         ],
                       ),
                       const SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "Pickup date",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.teal,
-                            ),
+                          const CustomText(
+                            text: "Pickup date",
+                            fontWeight: FontWeight.bold,
+                            color: CustomColor.blue,
                           ),
-                          Text(
-                            widget.customer.pickupdate,
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
+                          CustomText(
+                              text: widget.customer.pickupdate,
+                              color: CustomColor.black),
                         ],
                       ),
                       const SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "Pickup time",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.teal,
-                            ),
+                          const CustomText(
+                            text: "Pickup time",
+                            fontWeight: FontWeight.bold,
+                            color: CustomColor.blue,
                           ),
-                          Text(
-                            widget.customer.pickupTime,
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
+                          CustomText(
+                              text: widget.customer.pickupTime,
+                              color: CustomColor.black),
                         ],
                       ),
                       const SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "Drop off date",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.teal,
-                            ),
+                          const CustomText(
+                            text: "Drop off date",
+                            fontWeight: FontWeight.bold,
+                            color: CustomColor.blue,
                           ),
-                          Text(
-                            widget.customer.dropOffDate,
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
+                          CustomText(
+                              text: widget.customer.dropOffDate,
+                              color: CustomColor.black),
                         ],
                       ),
                       const SizedBox(height: 15),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            "Security deposit received",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.teal,
-                            ),
+                          const CustomText(
+                            text: "Security deposit received",
+                            color: CustomColor.blue,
+                            fontWeight: FontWeight.bold,
                           ),
-                          Text(
-                            widget.customer.securityDeposit,
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
+                          CustomText(
+                              text: widget.customer.securityDeposit,
+                              color: CustomColor.black),
                         ],
                       ),
                     ],
@@ -284,8 +236,8 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 10, 47, 39),
-                        foregroundColor: Colors.amber,
+                        backgroundColor: CustomColor.black,
+                        foregroundColor: CustomColor.white,
                         padding: const EdgeInsets.symmetric(
                             horizontal: 90, vertical: 12),
                         shape: RoundedRectangleBorder(

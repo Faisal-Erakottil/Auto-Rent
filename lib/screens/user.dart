@@ -1,8 +1,6 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers, use_build_context_synchronously
 
 import 'dart:io';
-
-import 'package:autorent/dataModels/box.dart';
 import 'package:autorent/dataModels/usermodel.dart';
 import 'package:autorent/db_functions/db_functions.dart';
 import 'package:autorent/screens/home.dart';
@@ -16,7 +14,7 @@ import 'package:image_picker/image_picker.dart';
 class Userdetails extends StatefulWidget {
   const Userdetails({super.key});
   //const Userdetails({Key? key}) : super(key: key);
-
+  
   @override
   State<Userdetails> createState() => _UserdetailsState();
 }

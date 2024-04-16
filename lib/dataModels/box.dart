@@ -1,4 +1,3 @@
-
 import 'package:autorent/dataModels/car_model.dart';
 import 'package:autorent/dataModels/customer_model.dart';
 import 'package:autorent/dataModels/usermodel.dart';
@@ -11,5 +10,6 @@ class Boxes {
       Hive.box<CustomerModel>('customer_db');
 
   static Box<UserModel> getUser() => Hive.box<UserModel>('user_db');
-}
 
+  
+}

@@ -25,7 +25,6 @@ void main() async {
   await Hive.openBox<CustomerModel>('customer_db');
   await Hive.openBox<UserModel>('user_db');
   runApp(const MyApp());
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

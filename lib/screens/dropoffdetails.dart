@@ -1,6 +1,4 @@
-
-
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, non_constant_identifier_names
 
 import 'dart:io';
 
@@ -20,11 +18,8 @@ import 'package:intl/intl.dart';
 class Dropoffdetails extends StatefulWidget {
   final CustomerModel customer;
   final CarModel? carModel;
-  const Dropoffdetails({
-    super.key,
-    required this.customer,
-    this.carModel,
-  });
+  const Dropoffdetails(
+      {super.key, required this.customer, this.carModel});
 
   @override
   State<Dropoffdetails> createState() => _DropfofdetailsState();
@@ -40,7 +35,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
   var pickupdate = TextEditingController();
   var pickupTime = TextEditingController();
   var dropOffDate = TextEditingController();
-  var droppOfftime = TextEditingController();
+  final droppOfftime = TextEditingController();
   var monthlyrentController = TextEditingController();
   var carseater = TextEditingController();
   var carfuel = TextEditingController();
@@ -60,6 +55,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
     pickupdate = TextEditingController();
     pickupTime = TextEditingController();
     dropOffDate = TextEditingController();
+    //droppOfftime = TextEditingController();
     securityDepositController = TextEditingController();
     monthlyrentController = TextEditingController();
     carseater = TextEditingController();
@@ -73,6 +69,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
     licenseNumberController.text = widget.customer.licenseNumber;
     selectedImage = widget.customer.selectedImage;
     dropOffDate.text = widget.customer.dropOffDate;
+    //droppOfftime.text=widget.customer.dr
     pickupdate.text = widget.customer.pickupdate;
     pickupTime.text = widget.customer.pickupTime;
     securityDepositController.text = widget.customer.securityDeposit;
@@ -105,26 +102,27 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
     );
   }
 
+//=============================================total Rent Calculation
+
   void updateTotalRent() {
     if (dropOffDate.text.isNotEmpty && droppOfftime.text.isNotEmpty) {
-      DateTime pickupDateTime = DateFormat('yyyy-MM-dd HH:mm')
+      DateFormat dateFormat = DateFormat('dd-MM-yyyy hh:mm a');
+      DateTime pickupDateTime = dateFormat
           .parse('${widget.customer.pickupdate} ${widget.customer.pickupTime}');
-
-      String combinedDateTimeString =
-          '${dropOffDate.text} ${droppOfftime.text}';
-
       DateTime dropOffDateTime =
-          DateFormat('yyyy-MM-dd HH:mm').parse(combinedDateTimeString);
+          dateFormat.parse('${dropOffDate.text} ${droppOfftime.text}');
+
+      double dailyRent = double.parse(carRentController.text);
+      int advance = int.parse(widget.customer.securityDeposit);
 
       totalRent = calculateTotalRent(
-        pickupDateTime,
-        dropOffDateTime,
-        double.parse(carRentController.text),
-      );
+          pickupDateTime, dropOffDateTime, dailyRent, advance);
+
       setState(() {});
     }
   }
 
+//==================================================================
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<CustomerModel>>(
@@ -153,6 +151,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                     centerTitle: true,
                     title: CustomText(
                       text: "DROP OF DETAILS",
+                      size: 18,
                       fontWeight: FontWeight.w600,
                     ),
                     backgroundColor: CustomColor.black,
@@ -269,7 +268,10 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                             Container(
                               alignment: Alignment.center,
                               padding: const EdgeInsets.all(10),
-                              color: CustomColor.primary,
+                              decoration: BoxDecoration(
+                                color: CustomColor.primary,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
                               child: CustomText(
                                 text: 'Total Rent: $totalRent',
                                 color: CustomColor.blue,
@@ -306,15 +308,20 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                             content: CustomText(
-                                                text: 'Please pick a drop-off time.',
-                                                size: 18,
-                                                ),
+                                              text:
+                                                  'Please pick a drop-off time.',
+                                              size: 18,
+                                            ),
                                             actions: <Widget>[
                                               TextButton(
                                                 onPressed: () {
                                                   Navigator.of(context).pop();
                                                 },
-                                                child: CustomText(text:'OK',size: 18,color: CustomColor.blue,),
+                                                child: CustomText(
+                                                  text: 'OK',
+                                                  size: 18,
+                                                  color: CustomColor.blue,
+                                                ),
                                               ),
                                             ],
                                           );
@@ -343,25 +350,26 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
               });
         });
   }
-//=====================================================calculations 
+
+//=====================================================calculations
   double calculateTotalRent(
     DateTime pickupDateTime,
     DateTime dropOffDateTime,
     double dailyRent,
+    int advance,
   ) {
     Duration timeDifference = dropOffDateTime.difference(pickupDateTime);
-
-    double totalDays = timeDifference.inDays.toDouble();
-    double totalHours = timeDifference.inHours.toDouble() % 24;
-
+    int totalDays = timeDifference.inDays;
+    int totalHours = timeDifference.inHours;
+    int additionalHours = totalHours - (totalDays * 24);
+    double hourlyRate = dailyRent / 24;
     double totalRent =
-        (totalDays * dailyRent) + ((totalHours / 24) * dailyRent);
-
+        (totalDays * dailyRent) + (additionalHours * hourlyRate) - advance;
     totalRent = double.parse(totalRent.toStringAsFixed(2));
-
     return totalRent;
   }
 
+//==================================================saving details
   Future<void> saveDetails() async {
     final vehiclename = widget.customer.carname;
     final vehicleReg = widget.customer.carReg;
@@ -372,14 +380,16 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
     final imagepath = widget.customer.selectedImage;
 
     final carsA = CarModel(
-        vehiclename: vehiclename,
-        vehicleReg: vehicleReg,
-        fuel: carfuel!,
-        seater: carseater!,
-        dailyrent: dailyrent,
-        monthlyrent: monthlyrent!,
-        selectedImage: imagepath);
+      vehiclename: vehiclename,
+      vehicleReg: vehicleReg,
+      fuel: carfuel!,
+      seater: carseater!,
+      dailyrent: dailyrent,
+      monthlyrent: monthlyrent!,
+      selectedImage: imagepath,
+    );
 
     addCar(carsA);
   }
+
 }
