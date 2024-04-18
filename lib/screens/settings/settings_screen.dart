@@ -34,7 +34,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         centerTitle: true,
         title: const CustomText(
-          text: "Settings",
+          text: "SETTINGS",
           size: 20,
           fontWeight: FontWeight.w600,
         ),
@@ -60,10 +60,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 leading: Icon(
                   Icons.privacy_tip_outlined,
                   color: CustomColor.blue,
+                  size: 28,
                 ),
                 title: CustomText(
                   text: "Privacy and Policy",
-                  size: 18,
+                  size: 20,
                   color: CustomColor.black,
                 ),
               ),
@@ -76,12 +77,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               },
               child: const ListTile(
                 leading: Icon(
-                  Icons.info,
+                  Icons.help_outline,
                   color: CustomColor.blue,
+                  size: 28,
                 ),
                 title: CustomText(
                   text: "About Us",
-                  size: 18,
+                  size: 20,
                   color: CustomColor.black,
                 ),
               ),
@@ -100,16 +102,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 leading: Icon(
                   Icons.info_outline,
                   color: CustomColor.blue,
+                  size: 28,
                 ),
                 title: CustomText(
                   text: "Terms and Conditions",
                   color: CustomColor.black,
-                  size: 18,
+                  size: 20,
                 ),
               ),
             ),
             const SizedBox(height: 10),
-            
           ],
         ),
       ),

@@ -1,4 +1,3 @@
-
 // ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
 import 'dart:io';
@@ -132,6 +131,7 @@ class UpdatecarState extends State<Updatecar> {
                   fieldName: 'Vehicle Name',
                   keyboardType: TextInputType.text,
                   controller: vehiclenameController,
+                  prefixIcon: Icons.directions_car,
                 ),
                 const Gap(15),
                 //========================================Registration Number
@@ -140,10 +140,12 @@ class UpdatecarState extends State<Updatecar> {
                   fieldName: 'registration number',
                   keyboardType: TextInputType.text,
                   controller: vehicleRegController,
+                  prefixIcon: Icons.pin_outlined,
                 ),
                 const Gap(15),
                 //=============================================Fuel Type
                 customDropdownField(
+                  prefixIcon: Icons.local_gas_station_outlined,
                   labelText: 'Fuel',
                   hintText: 'Fuel',
                   value: selectedFuel,
@@ -157,6 +159,7 @@ class UpdatecarState extends State<Updatecar> {
                 const Gap(15),
                 //================================================No of Seates
                 customDropdownField(
+                  prefixIcon: Icons.chair_outlined,
                   labelText: 'Seater',
                   hintText: 'Seater',
                   value: selectedSeat,
@@ -170,6 +173,7 @@ class UpdatecarState extends State<Updatecar> {
                 const Gap(15),
                 //===============================================Daily Rent
                 CustomTextField(
+                  prefixIcon: Icons.currency_rupee,
                   labelText: 'Daily Rent',
                   fieldName: 'Daily Rent',
                   controller: dailyrentController,
@@ -178,6 +182,7 @@ class UpdatecarState extends State<Updatecar> {
                 const Gap(15),
                 //===============================================Monthly Rent
                 CustomTextField(
+                  prefixIcon: Icons.paid_outlined,
                   labelText: 'Monthly Rent',
                   fieldName: 'Monthly Rent',
                   controller: monthlyrentController,

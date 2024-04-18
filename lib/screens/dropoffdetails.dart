@@ -18,8 +18,7 @@ import 'package:intl/intl.dart';
 class Dropoffdetails extends StatefulWidget {
   final CustomerModel customer;
   final CarModel? carModel;
-  const Dropoffdetails(
-      {super.key, required this.customer, this.carModel});
+  const Dropoffdetails({super.key, required this.customer, this.carModel});
 
   @override
   State<Dropoffdetails> createState() => _DropfofdetailsState();
@@ -169,6 +168,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               fieldName: 'carname',
                               controller: carnameController,
                               enable: false,
+                              prefixIcon: Icons.directions_car_outlined,
                             ),
                             const Gap(15),
                             CustomTextField(
@@ -176,6 +176,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               fieldName: 'Daily Rent',
                               controller: carRentController,
                               enable: false,
+                              prefixIcon: Icons.currency_rupee_outlined,
                             ),
                             const Gap(15),
                             CustomTextField(
@@ -183,12 +184,14 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               fieldName: 'Car reg number',
                               controller: carRegController,
                               enable: false,
+                              prefixIcon: Icons.pin_outlined,
                             ),
                             const Gap(15),
                             CustomTextField(
                               labelText: 'Customer Name',
                               fieldName: 'Customer Name',
                               controller: customerNameController,
+                              prefixIcon: Icons.person_outline,
                               enable: false,
                             ),
                             const Gap(15),
@@ -196,6 +199,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               labelText: 'Mobile Number',
                               fieldName: 'Mobile Number',
                               controller: mobileNumberController,
+                              prefixIcon: Icons.phone_android,
                               enable: false,
                             ),
                             const Gap(15),
@@ -204,6 +208,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               fieldName: 'License Number',
                               controller: licenseNumberController,
                               enable: false,
+                              prefixIcon: Icons.badge_outlined,
                             ),
                             const Gap(15),
                             CustomTextField(
@@ -211,6 +216,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               fieldName: 'Pickup Date',
                               controller: pickupdate,
                               enable: false,
+                              prefixIcon: Icons.calendar_today_outlined,
                             ),
                             const Gap(15),
                             CustomTextField(
@@ -218,6 +224,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               fieldName: 'Pickup Time',
                               controller: pickupTime,
                               enable: false,
+                              prefixIcon: Icons.schedule_outlined,
                             ),
                             const Gap(15),
                             CustomTextField(
@@ -225,12 +232,14 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               fieldName: 'Drop Off Date',
                               controller: dropOffDate,
                               enable: false,
+                              prefixIcon: Icons.event_outlined,
                             ),
                             const Gap(15),
                             CustomTextField(
                               labelText: 'Security Deposit',
                               fieldName: 'Security Deposit',
                               controller: securityDepositController,
+                              prefixIcon: Icons.safety_check_outlined,
                               enable: false,
                             ),
                             const Gap(15),
@@ -238,9 +247,19 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
                               decoration: const InputDecoration(
-                                icon: Icon(Icons.access_time),
                                 labelText: 'DropOff Time',
                                 hintText: 'DropOff Time',
+                                filled: true,
+                                fillColor: CustomColor.white,
+                                prefixIcon: Icon(Icons.access_time),
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15)),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                ),
                               ),
                               controller: droppOfftime,
                               onTap: () async {
@@ -391,5 +410,4 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
 
     addCar(carsA);
   }
-
 }

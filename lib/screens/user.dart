@@ -13,8 +13,7 @@ import 'package:image_picker/image_picker.dart';
 
 class Userdetails extends StatefulWidget {
   const Userdetails({super.key});
-  //const Userdetails({Key? key}) : super(key: key);
-  
+
   @override
   State<Userdetails> createState() => _UserdetailsState();
 }
@@ -45,19 +44,28 @@ class _UserdetailsState extends State<Userdetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColor.primary,
+      backgroundColor: CustomColor.white,
       appBar: AppBar(
         backgroundColor: CustomColor.black,
-        title: const Padding(
-          padding: EdgeInsets.all(86.0),
-          child: CustomText(
-            text: "User Details",
-            size: 18,
-            fontWeight: FontWeight.bold,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
           ),
         ),
-        iconTheme: const IconThemeData(
-          color: CustomColor.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+        title: const CustomText(
+          size: 20,
+          text: "User Details",
+          fontWeight: FontWeight.bold,
         ),
       ),
       //=============== image picker
@@ -103,7 +111,7 @@ class _UserdetailsState extends State<Userdetails> {
                     }
                     return null;
                   },
-                  prefixIcon: Icons.abc,
+                  prefixIcon: Icons.person_outline,
                 ),
                 const Gap(20),
                 //================== Mobils Number
@@ -139,7 +147,7 @@ class _UserdetailsState extends State<Userdetails> {
                     }
                     return null;
                   },
-                  prefixIcon: Icons.email,
+                  prefixIcon: Icons.email_outlined,
                 ),
                 const Gap(20),
                 //================== save Button
@@ -148,7 +156,7 @@ class _UserdetailsState extends State<Userdetails> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Colors.black,
                   ),
                   onPressed: () {
                     setState(() {
@@ -190,6 +198,7 @@ class _UserdetailsState extends State<Userdetails> {
                   ),
                   label: const CustomText(
                     text: "Save",
+                    color: CustomColor.white,
                     size: 20,
                   ),
                 ),
@@ -204,11 +213,8 @@ class _UserdetailsState extends State<Userdetails> {
 
   Future<void> onAddSaveButtonClicked() async {
     final _name = nameController.text.trim();
-    //print('$_name');
     final _mobile = mobController.text.trim();
-    //print('$_mobile');
     final _email = emailController.text.trim();
-    //print('$_email');
     if (imagepath == null ||
         _name.isEmpty ||
         _mobile.isEmpty ||
@@ -221,7 +227,6 @@ class _UserdetailsState extends State<Userdetails> {
       email: _email,
       image: imagepath?.path ?? "",
     );
-    //  print(userDetails);
     // Pass the user details back to the previous screen (HomeScreen)
     Navigator.pop(context, userDetails);
   }
@@ -229,31 +234,20 @@ class _UserdetailsState extends State<Userdetails> {
   Future<void> saveDetails() async {
     // onAddSaveButtonClicked();
     final name = nameController.text.trim();
-    //print(name);
     final mobile = mobController.text.trim();
-    //print(mobile);
     final email = emailController.text.trim();
-    //print(email);
-    //final image = imagepath?.path;
-    //print(image);
     if (imagepath == null || name.isEmpty || mobile.isEmpty || email.isEmpty) {
       return;
     }
-    // // Save the input data to Hive
+    // Save the input data to HiveBox
     final userDetails = UserModel(
       name: name,
       mobile: mobile,
       email: email,
       image: imagepath?.path ?? "",
     );
-    //print(userDetails);
 
     await addUser(userDetails);
     getAllData();
-    //final box = Boxes.getUser();
-    //box.put("user_db", userDetails);
-
-    // Navigate back to the HomeScreen or perform any other action
-    //Navigator.pop(context);
   }
 }

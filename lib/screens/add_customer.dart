@@ -10,6 +10,9 @@ import 'package:autorent/widgets/custom_colors.dart';
 import 'package:autorent/widgets/custom_text.dart';
 import 'package:autorent/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
@@ -116,7 +119,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         fieldName: 'Car Name',
                         controller: carnameController,
                         keyboardType: TextInputType.text,
-                        prefixIcon: Icons.abc,
+                        prefixIcon: Icons.directions_car,
                         enable: false,
                       ),
                       const Gap(15),
@@ -133,7 +136,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         fieldName: 'Car Reg Number',
                         keyboardType: TextInputType.text,
                         controller: carRegController,
-                        prefixIcon: Icons.pin,
+                        prefixIcon: Icons.pin_outlined,
                         enable: false,
                       ),
                       const Gap(15),
@@ -142,7 +145,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         fieldName: 'customer Name',
                         controller: customerNameController,
                         keyboardType: TextInputType.text,
-                        prefixIcon: Icons.abc,
+                        prefixIcon: Icons.person_outline,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Value is empty';
@@ -168,16 +171,11 @@ class _AddCustomerState extends State<AddCustomer> {
                             return null;
                           }),
                       const Gap(15),
-                      TextFormField(
-                        style: TextStyle(color: CustomColor.black),
-                        decoration: const InputDecoration(
-                          icon: Icon(Icons.add_card),
-                          labelText: 'License Number',
-                          hintText: 'License Number',
-                        ),
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                      CustomTextField(
                         controller: licenseNumberController,
-                        keyboardType: TextInputType.text,
+                        labelText: 'License Number',
+                        fieldName: 'License Number',
+                        prefixIcon: Icons.badge_outlined,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter a license number';
@@ -190,12 +188,23 @@ class _AddCustomerState extends State<AddCustomer> {
                         },
                       ),
                       const Gap(15),
+                      //==================================Pickup Date
                       TextFormField(
                         style: TextStyle(color: CustomColor.black),
-                        decoration: const InputDecoration(
-                          icon: Icon(Icons.calendar_today_rounded),
+                        decoration: InputDecoration(
+                          //icon: Icon(Icons.calendar_today_rounded),
                           labelText: 'Pickup Date',
                           hintText: 'Pickup Date',
+                          filled: true,
+                          fillColor: CustomColor.white,
+                          prefixIcon: Icon(Icons.today),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                              width: 1.0,
+                            ),
+                          ),
                         ),
                         controller: pickupdate,
                         onTap: () async {
@@ -226,9 +235,18 @@ class _AddCustomerState extends State<AddCustomer> {
                         style: TextStyle(color: CustomColor.black),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: const InputDecoration(
-                          icon: Icon(Icons.access_time),
                           labelText: 'Pickup Time',
                           hintText: 'Pickup Time',
+                          filled: true,
+                          fillColor: CustomColor.white,
+                          prefixIcon: Icon(Icons.access_time),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(
+                              color: CustomColor.black,
+                              width: 1.0,
+                            ),
+                          ),
                         ),
                         controller: pickupTime,
                         onTap: () async {
@@ -256,9 +274,16 @@ class _AddCustomerState extends State<AddCustomer> {
                         style: TextStyle(color: CustomColor.black),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: const InputDecoration(
-                          icon: Icon(Icons.calendar_today_rounded),
                           labelText: 'Drop Off Date',
                           hintText: 'Drop Off Date',
+                          prefixIcon: Icon(Icons.calendar_today_outlined),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                              width: 1.0,
+                            ),
+                          ),
                         ),
                         controller: dropOffDate,
                         onTap: () async {

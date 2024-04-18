@@ -1,5 +1,3 @@
-
-
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:autorent/widgets/custom_colors.dart';
@@ -37,7 +35,7 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       enabled: enable,
       obscureText: obscureText,
-      style: const TextStyle(color: Colors.black, fontSize: 16),
+      style: const TextStyle(color: CustomColor.black, fontSize: 16),
       decoration: InputDecoration(
         prefixIcon: Icon(
           prefixIcon,

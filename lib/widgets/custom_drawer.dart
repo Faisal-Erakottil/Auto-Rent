@@ -6,6 +6,7 @@ Widget customDropdownField({
   required String? value,
   required List<String> items,
   required Function(String?) onChanged,
+  IconData? prefixIcon,
 }) {
   return DropdownButtonFormField<String>(
     value: value,
@@ -18,8 +19,9 @@ Widget customDropdownField({
     onChanged: onChanged,
     decoration: InputDecoration(
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(15),
       ),
+      prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
       hintText: hintText,
       labelText: labelText,
     ),

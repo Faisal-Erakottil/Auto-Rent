@@ -115,59 +115,58 @@ class _MyWidgetState extends State<Updatecustomer> {
                 _buildSelectedImage(),
                 const Gap(15),
                 CustomTextField(
-                  enable: false,
                   labelText: 'Car Name',
                   fieldName: 'Car Name',
                   controller: carnameController,
-                  keyboardType: TextInputType.text,
+                  prefixIcon: Icons.directions_car,
+                  enable: false,
+                ),
+                const Gap(15),
+                CustomTextField(
+                  labelText: 'Car reg Number',
+                  fieldName: 'Car Reg Number',
+                  controller: carRegController,
+                  prefixIcon: Icons.pin_outlined,
+                  enable: false,
                 ),
                 const Gap(15),
                 CustomTextField(
                   enable: false,
-                  labelText: 'Car reg Number',
-                  fieldName: 'Car Reg Number',
-                  keyboardType: TextInputType.text,
-                  controller: carRegController,
+                  labelText: 'Daily Rent',
+                  fieldName: 'Daily Rent',
+                  controller: carrentcontroller,
+                  prefixIcon: Icons.currency_rupee,
                 ),
-                const Gap(15),
-                CustomTextField(
-                    enable: false,
-                    labelText: 'Daily Rent',
-                    fieldName: 'Daily Rent',
-                    controller: carrentcontroller),
                 const Gap(15),
                 CustomTextField(
                   labelText: 'Customer Name',
                   fieldName: 'Customer Name',
                   controller: customerNameController,
                   keyboardType: TextInputType.text,
+                  prefixIcon: Icons.person_outline,
                 ),
                 const Gap(15),
-                TextFormField(
-                  decoration: const InputDecoration(
+                CustomTextField(
                     labelText: 'Mobile Number',
-                    hintText: 'Mobile Number',
-                  ),
-                  controller: mobileNumberController,
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter a mobile number';
-                    }
-                    if (value.length != 10) {
-                      return 'Mobile number must be 10 digits';
-                    }
-                    return null;
-                  },
-                ),
+                    fieldName: 'Mobile Number',
+                    controller: mobileNumberController,
+                    keyboardType: TextInputType.number,
+                    prefixIcon: Icons.phone_iphone,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter a mobile number';
+                      }
+                      if (value.length != 10) {
+                        return 'Mobile number must be 10 digits';
+                      }
+                      return null;
+                    }),
                 const Gap(15),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'License Number',
-                    hintText: 'License Number',
-                  ),
+                CustomTextField(
                   controller: licenseNumberController,
-                  keyboardType: TextInputType.text,
+                  labelText: 'License Number',
+                  fieldName: 'License Number',
+                  prefixIcon: Icons.badge_outlined,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter a license number';
@@ -180,10 +179,19 @@ class _MyWidgetState extends State<Updatecustomer> {
                 ),
                 const Gap(15),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.calendar_today_rounded),
+                  decoration: InputDecoration(
                     labelText: 'Pickup Date',
                     hintText: 'Pickup Date',
+                    filled: true,
+                    fillColor: CustomColor.white,
+                    prefixIcon: const Icon(Icons.today),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: const BorderSide(
+                        color: Colors.black,
+                        width: 1.0,
+                      ),
+                    ),
                   ),
                   controller: pickupdate,
                   onTap: () async {
@@ -210,11 +218,19 @@ class _MyWidgetState extends State<Updatecustomer> {
                   },
                 ),
                 const Gap(15),
+                //=====================================Pickup Time
                 TextFormField(
                   decoration: const InputDecoration(
-                    icon: Icon(Icons.access_time),
+                    prefixIcon: Icon(Icons.access_time),
                     labelText: 'Pickup Time',
                     hintText: 'Pickup Time',
+                    filled: true,
+                    fillColor: CustomColor.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderSide:
+                          BorderSide(color: CustomColor.black, width: 1),
+                    ),
                   ),
                   controller: pickupTime,
                   onTap: () async {
@@ -240,10 +256,17 @@ class _MyWidgetState extends State<Updatecustomer> {
                 const Gap(15),
                 TextFormField(
                   decoration: const InputDecoration(
-                    icon: Icon(Icons.calendar_today_rounded),
-                    labelText: 'Drop Off Date',
-                    hintText: 'Drop Off Date',
-                  ),
+                      labelText: 'Drop Off Date',
+                      hintText: 'Drop Off Date',
+                      filled: true,
+                      fillColor: CustomColor.white,
+                      prefixIcon: Icon(Icons.calendar_today_rounded),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          borderSide: BorderSide(
+                            color: CustomColor.black,
+                            width: 1,
+                          ))),
                   controller: dropOffDate,
                   onTap: () async {
                     DateTime currentDate = DateTime.now();
@@ -273,6 +296,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   fieldName: 'Security Deposit',
                   controller: securityDepositController,
                   keyboardType: TextInputType.number,
+                  prefixIcon: Icons.safety_check_outlined,
                 ),
                 const Gap(15),
                 Row(

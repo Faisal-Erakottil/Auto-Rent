@@ -28,21 +28,21 @@ class TermsConditions extends StatelessWidget {
         title: const CustomText(
           text: "Terms and Conditions",
           size: 20,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.bold,
         ),
         backgroundColor: Colors.black,
       ),
       body: const SingleChildScrollView(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
               child: CustomText(
                 text: "Terms and Conditions",
-                color: CustomColor.black,
+                color: CustomColor.blue,
                 fontWeight: FontWeight.bold,
-                size: 18,
+                size: 20,
               ),
             ),
             SizedBox(height: 5),
@@ -54,9 +54,9 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 10),
             CustomText(
               text: "Introduction",
-              color: CustomColor.black,
+              color: CustomColor.blue,
               fontWeight: FontWeight.bold,
-              size: 18,
+              size: 20,
             ),
             SizedBox(height: 5),
             CustomText(
@@ -67,8 +67,8 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 10),
             CustomText(
               text: "User Information",
-              color: CustomColor.black,
-              size: 18,
+              color: CustomColor.blue,
+              size: 20,
             ),
             SizedBox(height: 5),
             CustomText(
@@ -79,8 +79,8 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 10),
             CustomText(
               text: "Limitation of Liability",
-              color: CustomColor.black,
-              size: 18,
+              color: CustomColor.blue,
+              size: 20,
               fontWeight: FontWeight.bold,
             ),
             SizedBox(height: 5),
@@ -92,9 +92,9 @@ class TermsConditions extends StatelessWidget {
             SizedBox(height: 10),
             CustomText(
               text: "Changes to Terms and Conditions",
-              color: CustomColor.black,
+              color: CustomColor.blue,
               fontWeight: FontWeight.bold,
-              size: 18,
+              size: 20,
             ),
             SizedBox(height: 5),
             CustomText(
@@ -107,6 +107,8 @@ class TermsConditions extends StatelessWidget {
               text:
                   "By using Auto Rent, you agree to these Terms and Conditions. Thank you for using Auto Rent!",
               color: CustomColor.black,
+              fontWeight: FontWeight.bold,
+              size: 18,
             ),
           ],
         ),

@@ -36,13 +36,11 @@ class PrivacyPolicy extends StatelessWidget {
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: [
-                Center(
-                  child: CustomText(
-                    text: 'Introduction',
-                    fontWeight: FontWeight.bold,
-                    size: 20,
-                    color: CustomColor.black,
-                  ),
+                CustomText(
+                  text: 'Introduction',
+                  fontWeight: FontWeight.bold,
+                  size: 20,
+                  color: CustomColor.blue,
                 ),
                 SizedBox(height: 5),
                 CustomText(
@@ -55,9 +53,9 @@ class PrivacyPolicy extends StatelessWidget {
                 SizedBox(height: 10),
                 CustomText(
                   text: "Information we Collect",
-                  size: 18,
+                  size: 20,
                   fontWeight: FontWeight.bold,
-                  color: CustomColor.black,
+                  color: CustomColor.blue,
                 ),
                 SizedBox(height: 5),
                 CustomText(
@@ -69,8 +67,8 @@ class PrivacyPolicy extends StatelessWidget {
                 SizedBox(height: 10),
                 CustomText(
                   text: "How we Use Your Information",
-                  color: CustomColor.black,
-                  size: 18,
+                  color: CustomColor.blue,
+                  size: 20,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: 5),
@@ -82,8 +80,8 @@ class PrivacyPolicy extends StatelessWidget {
                 SizedBox(height: 10),
                 CustomText(
                   text: "Data Storage and Security",
-                  color: CustomColor.black,
-                  size: 18,
+                  color: CustomColor.blue,
+                  size: 20,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: 5),
@@ -95,9 +93,9 @@ class PrivacyPolicy extends StatelessWidget {
                 SizedBox(height: 10),
                 CustomText(
                   text: "Information Sharing",
-                  size: 18,
+                  size: 20,
                   fontWeight: FontWeight.bold,
-                  color: CustomColor.black,
+                  color: CustomColor.blue,
                 ),
                 SizedBox(height: 5),
                 CustomText(
@@ -108,9 +106,9 @@ class PrivacyPolicy extends StatelessWidget {
                 SizedBox(height: 10),
                 CustomText(
                   text: "Changes to the Privacy Policy",
-                  color: CustomColor.black,
+                  color: CustomColor.blue,
                   fontWeight: FontWeight.bold,
-                  size: 18,
+                  size: 20,
                 ),
                 SizedBox(height: 5),
                 CustomText(
@@ -121,12 +119,13 @@ class PrivacyPolicy extends StatelessWidget {
                 SizedBox(height: 10),
                 CustomText(
                   text: "Contact Us",
-                  color: CustomColor.black,
+                  color: CustomColor.blue,
                   fontWeight: FontWeight.bold,
                   size: 20,
                 ),
                 SizedBox(height: 5),
                 CustomText(
+                    color: CustomColor.black,
                     text:
                         "If you have any questions or concerns about this Privacy Policy or the App's privacy practices, please contact us at [faisalErakottil@gmail.com].")
               ],

@@ -10,7 +10,6 @@ import 'package:hive/hive.dart';
 ValueNotifier<List<UserModel>> userNotifier = ValueNotifier([]);
 ValueNotifier<List<CarModel>> carListNotifier = ValueNotifier([]);
 ValueNotifier<List<CustomerModel>> customerListNotifier = ValueNotifier([]);
-//ValueNotifier<List<History>> HistoryNotifier = ValueNotifier([]);
 //==================================================================User
 
 Future<void> addUser(UserModel value) async {
@@ -51,15 +50,6 @@ Future<void> addCustomer(CustomerModel value) async {
   // print(value);
 }
 
-//===================================adding datas to HISTORY
-// Future<void> addHistory(History value) async {
-//   final HistoryDB = await Hive.openBox<History>('history_db');
-//   final id = await HistoryDB.add(value);
-//   value.id = id;
-//   HistoryNotifier.value.add(value);
-//   HistoryNotifier.notifyListeners();
-// }
-
 Future<void> getAllCars() async {
   final carDB = await Hive.openBox<CarModel>('car_db');
   carListNotifier.value.clear();
@@ -96,23 +86,6 @@ List<CarModel> searchCars(String query) {
 
   return searchResults;
 }
-
-//=====================================================Car history
-// List<History> carHistory(String query) {
-//   final historyDB = Hive.box<History>('history_db');
-//   final List<History> allCars = historyDB.values.toList();
-
-//   if (query.isEmpty) {
-//     return allCars;
-//   }
-
-//   final List<History> searchResults = allCars
-//       .where((car) => car.carname.toLowerCase().contains(query.toLowerCase()))
-//       .cast<History>()
-//       .toList();
-
-//   return searchResults;
-// }
 
 //=====================================================Customer History
 List<CustomerModel> customerHistory(String query) {

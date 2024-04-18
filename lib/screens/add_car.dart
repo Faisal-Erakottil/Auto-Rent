@@ -115,7 +115,7 @@ class _AddCarState extends State<AddCar> {
                   fieldName: 'Car Name',
                   keyboardType: TextInputType.text,
                   controller: vehiclenameController,
-                  prefixIcon: Icons.abc,
+                  prefixIcon: Icons.directions_car_outlined,
                 ),
                 const Gap(15),
                 CustomTextField(
@@ -123,12 +123,13 @@ class _AddCarState extends State<AddCar> {
                   fieldName: 'Registration Number',
                   keyboardType: TextInputType.text,
                   controller: vehicleRegController,
-                  prefixIcon: Icons.numbers_rounded,
+                  prefixIcon: Icons.pin_outlined,
                 ),
                 const Gap(15),
                 customDropdownField(
                   labelText: 'Fuel',
                   hintText: 'Fuel',
+                  prefixIcon: Icons.local_gas_station_outlined,
                   value: selectedFuel,
                   items: ['Petrol', 'Diesel', 'EV', 'CNG'],
                   onChanged: (String? value) {
@@ -142,6 +143,7 @@ class _AddCarState extends State<AddCar> {
                   labelText: 'Seater',
                   hintText: 'Seater',
                   value: selectedSeat,
+                  prefixIcon: Icons.chair_outlined,
                   items: ['2', '4', '5', '7', '8'],
                   onChanged: (String? value) {
                     setState(() {
@@ -163,7 +165,7 @@ class _AddCarState extends State<AddCar> {
                   fieldName: 'Monthly Rent',
                   controller: monthlyrentController,
                   keyboardType: TextInputType.number,
-                  prefixIcon: Icons.currency_rupee,
+                  prefixIcon: Icons.paid_outlined,
                 ),
                 const Gap(15),
                 customButton(
