@@ -1,5 +1,6 @@
 import 'package:autorent/dataModels/car_model.dart';
 import 'package:autorent/dataModels/customer_model.dart';
+import 'package:autorent/dataModels/history_model.dart';
 import 'package:autorent/dataModels/usermodel.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -11,5 +12,5 @@ class Boxes {
 
   static Box<UserModel> getUser() => Hive.box<UserModel>('user_db');
 
-  
+  static Box<HistoryModel> getHistory() => Hive.box<HistoryModel>('history_db');
 }

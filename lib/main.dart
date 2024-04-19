@@ -2,6 +2,7 @@
 
 import 'package:autorent/dataModels/car_model.dart';
 import 'package:autorent/dataModels/customer_model.dart';
+import 'package:autorent/dataModels/history_model.dart';
 import 'package:autorent/dataModels/usermodel.dart';
 import 'package:autorent/screens/splash.dart';
 import 'package:autorent/widgets/custom_colors.dart';
@@ -21,9 +22,13 @@ void main() async {
   if (!Hive.isAdapterRegistered(UserModelAdapter().typeId)) {
     Hive.registerAdapter(UserModelAdapter());
   }
+  if (!Hive.isAdapterRegistered(HistoryModelAdapter().typeId)) {
+    Hive.registerAdapter(HistoryModelAdapter());
+  }
   await Hive.openBox<CarModel>('car_db');
   await Hive.openBox<CustomerModel>('customer_db');
   await Hive.openBox<UserModel>('user_db');
+  await Hive.openBox<HistoryModel>('history_db');
   runApp(const MyApp());
 }
 

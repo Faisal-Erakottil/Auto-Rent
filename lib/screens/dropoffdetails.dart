@@ -410,4 +410,10 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
 
     addCar(carsA);
   }
+
+  Future<void> saveHistory() async {
+    final vehiclename = vehiclenameController.text.trim();
+    final vehicleReg = vehicleRegController.text.trim();
+    
+  }
 }

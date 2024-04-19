@@ -3,6 +3,7 @@
 import 'package:autorent/dataModels/box.dart';
 import 'package:autorent/dataModels/car_model.dart';
 import 'package:autorent/dataModels/customer_model.dart';
+import 'package:autorent/dataModels/history_model.dart';
 import 'package:autorent/dataModels/usermodel.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -10,6 +11,7 @@ import 'package:hive/hive.dart';
 ValueNotifier<List<UserModel>> userNotifier = ValueNotifier([]);
 ValueNotifier<List<CarModel>> carListNotifier = ValueNotifier([]);
 ValueNotifier<List<CustomerModel>> customerListNotifier = ValueNotifier([]);
+ValueNotifier<List<HistoryModel>> HistoryNitifier = ValueNotifier([]);
 //==================================================================User
 
 Future<void> addUser(UserModel value) async {
@@ -31,7 +33,24 @@ Future<void> getAllData() async {
   userNotifier.notifyListeners();
 }
 
-//================================================================Car
+//============================================================History
+Future<void> addHistory(HistoryModel values) async {
+  final historyDB = await Hive.openBox<HistoryModel>('history_db');
+  final id = await historyDB.add(values);
+  values.id = id;
+  HistoryNitifier.value.add(values);
+  HistoryNitifier.notifyListeners();
+}
+
+//=========================================== all values from history
+Future<void> getHistory() async {
+  final historyDB = await Hive.openBox<HistoryModel>('history_db');
+  HistoryNitifier.value.clear();
+  HistoryNitifier.value.addAll(historyDB.values);
+  HistoryNitifier.notifyListeners();
+}
+
+//==================================================================Car
 Future<void> addCar(CarModel value) async {
   final carDB = await Hive.openBox<CarModel>('car_db');
   final id = await carDB.add(value);
@@ -41,6 +60,7 @@ Future<void> addCar(CarModel value) async {
   carListNotifier.notifyListeners();
 }
 
+//=============================================== add customers to Box
 Future<void> addCustomer(CustomerModel value) async {
   final customerDB = await Hive.openBox<CustomerModel>('customer_db');
   final id = await customerDB.add(value);
@@ -50,13 +70,14 @@ Future<void> addCustomer(CustomerModel value) async {
   // print(value);
 }
 
+//================================================== values of all cars
 Future<void> getAllCars() async {
   final carDB = await Hive.openBox<CarModel>('car_db');
   carListNotifier.value.clear();
   carListNotifier.value.addAll(carDB.values);
   carListNotifier.notifyListeners();
 }
-//============================================================customer
+//============================================================ customer
 
 Future<void> getAllCustomers() async {
   final customerDB = await Hive.openBox<CustomerModel>('customer_db');

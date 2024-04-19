@@ -9,29 +9,29 @@ import 'package:autorent/widgets/custom_colors.dart';
 import 'package:autorent/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class History extends StatefulWidget {
-  const History({super.key});
+class HistoryScreen extends StatefulWidget {
+  const HistoryScreen({super.key});
 
   @override
-  State<History> createState() => _HistoryState();
+  State<HistoryScreen> createState() => _HistoryScreenState();
 }
 
-class _HistoryState extends State<History> {
+class _HistoryScreenState extends State<HistoryScreen> {
   int indexNum = 1;
   List<CarModel> searchCarResults = [];
   List<CustomerModel> searchCustomerResults = [];
   @override
   void initState() {
     super.initState();
-    performSearch('');
+    getHistory();
+   // performSearch('');
   }
-
-  void performSearch(String query) {
-    setState(() {
-      searchCarResults = searchCars(query);
-      searchCustomerResults = customerHistory(query);
-    });
-  }
+  // void performSearch(String query) {
+  //   setState(() {
+  //     // searchCarResults = searchCars(query);
+  //     // searchCustomerResults = customerHistory(query);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
