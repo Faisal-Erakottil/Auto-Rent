@@ -26,6 +26,7 @@ class CarModel extends HiveObject {
 
   @HiveField(7)
   String selectedImage;
+  
 
   CarModel({
     this.id,

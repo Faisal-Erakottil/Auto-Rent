@@ -1,3 +1,4 @@
+import 'package:autorent/dataModels/history_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 part 'customer_model.g.dart';
 
@@ -65,4 +66,6 @@ class CustomerModel extends HiveObject {
     this.carfuel,
     this.carseater,
   });
+
+  static fromHistory(HistoryModel data) {}
 }

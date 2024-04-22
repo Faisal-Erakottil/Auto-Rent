@@ -68,7 +68,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
     licenseNumberController.text = widget.customer.licenseNumber;
     selectedImage = widget.customer.selectedImage;
     dropOffDate.text = widget.customer.dropOffDate;
-    //droppOfftime.text=widget.customer.dr
+    //droppOfftime.text = widget.customer.dropOfftime;
     pickupdate.text = widget.customer.pickupdate;
     pickupTime.text = widget.customer.pickupTime;
     securityDepositController.text = widget.customer.securityDeposit;
@@ -407,13 +407,6 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
       monthlyrent: monthlyrent!,
       selectedImage: imagepath,
     );
-
     addCar(carsA);
-  }
-
-  Future<void> saveHistory() async {
-    final vehiclename = vehiclenameController.text.trim();
-    final vehicleReg = vehicleRegController.text.trim();
-    
   }
 }

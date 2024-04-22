@@ -11,7 +11,7 @@ import 'package:hive/hive.dart';
 ValueNotifier<List<UserModel>> userNotifier = ValueNotifier([]);
 ValueNotifier<List<CarModel>> carListNotifier = ValueNotifier([]);
 ValueNotifier<List<CustomerModel>> customerListNotifier = ValueNotifier([]);
-ValueNotifier<List<HistoryModel>> HistoryNitifier = ValueNotifier([]);
+ValueNotifier<List<HistoryModel>> HistoryNotifier = ValueNotifier([]);
 //==================================================================User
 
 Future<void> addUser(UserModel value) async {
@@ -33,21 +33,21 @@ Future<void> getAllData() async {
   userNotifier.notifyListeners();
 }
 
-//============================================================History
+//=======================================add datas to History
 Future<void> addHistory(HistoryModel values) async {
   final historyDB = await Hive.openBox<HistoryModel>('history_db');
   final id = await historyDB.add(values);
   values.id = id;
-  HistoryNitifier.value.add(values);
-  HistoryNitifier.notifyListeners();
+  HistoryNotifier.value.add(values);
+  HistoryNotifier.notifyListeners();
 }
 
 //=========================================== all values from history
-Future<void> getHistory() async {
+Future<void> getHistory(HistoryModel historyA) async {
   final historyDB = await Hive.openBox<HistoryModel>('history_db');
-  HistoryNitifier.value.clear();
-  HistoryNitifier.value.addAll(historyDB.values);
-  HistoryNitifier.notifyListeners();
+  HistoryNotifier.value.clear();
+  HistoryNotifier.value.addAll(historyDB.values);
+  HistoryNotifier.notifyListeners();
 }
 
 //==================================================================Car

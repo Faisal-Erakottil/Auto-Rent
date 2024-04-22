@@ -11,7 +11,7 @@ import 'package:intl/intl.dart';
 
 class Updatecustomer extends StatefulWidget {
   final CustomerModel customer;
-  const Updatecustomer({super.key, required this.customer});
+  const Updatecustomer({super.key, required this.customer });
 
   @override
   State<Updatecustomer> createState() => _MyWidgetState();

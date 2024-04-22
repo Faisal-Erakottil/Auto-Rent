@@ -5,14 +5,12 @@ import 'dart:io';
 import 'package:autorent/dataModels/box.dart';
 import 'package:autorent/dataModels/car_model.dart';
 import 'package:autorent/dataModels/customer_model.dart';
+import 'package:autorent/dataModels/history_model.dart';
 import 'package:autorent/db_functions/db_functions.dart';
 import 'package:autorent/widgets/custom_colors.dart';
 import 'package:autorent/widgets/custom_text.dart';
 import 'package:autorent/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
@@ -338,6 +336,7 @@ class _AddCustomerState extends State<AddCustomer> {
                             onPressed: () async {
                               if (formKey.currentState?.validate() ?? false) {
                                 removeCarFromScreen(widget.selectedCar!);
+                                await saveHistory();
                                 await saveCus();
                               }
                             },
@@ -357,6 +356,56 @@ class _AddCustomerState extends State<AddCustomer> {
         });
   }
 
+// =========================saving collected datas to History Model
+  Future<void> saveHistory() async {
+    final carname = carnameController.text.trim();
+    final carReg = carRegController.text.trim();
+    final carDailyrent = carrentcontroller.text.trim();
+    final customerName = customerNameController.text.trim();
+    final mobileNumber = mobileNumberController.text.trim();
+    final licenseNumber = licenseNumberController.text.trim();
+    final securityDeposit = securityDepositController.text.trim();
+    final pickupdaten = pickupdate.text.trim();
+    final pickupTimen = pickupTime.text.trim();
+    final dropOffDaten = dropOffDate.text.trim();
+    final imagepath = widget.selectedCar!.selectedImage;
+    final carMonthlyRent = widget.selectedCar?.monthlyrent;
+    final carfuel = widget.selectedCar?.fuel;
+    final carseater = widget.selectedCar?.seater;
+
+    if (carname.isEmpty ||
+        carReg.isEmpty ||
+        carDailyrent.isEmpty ||
+        customerName.isEmpty ||
+        mobileNumber.isEmpty ||
+        licenseNumber.isEmpty ||
+        securityDeposit.isEmpty ||
+        pickupdaten.isEmpty ||
+        pickupTimen.isEmpty ||
+        dropOffDaten.isEmpty ||
+        imagepath.isEmpty) {
+      return;
+    }
+    final historyA = HistoryModel(
+      vehiclename: carname,
+      vehicleReg: carReg,
+      vehicleDailyRent: carDailyrent,
+      customerName: customerName,
+      mobileNumber: mobileNumber,
+      licenseNumber: licenseNumber,
+      pickupdate: pickupdaten,
+      pickupTime: pickupTimen,
+      dropOffDate: dropOffDaten,
+      securityDeposit: securityDeposit,
+      selectedImage: imagepath,
+      vehicleMonthlyRent: carMonthlyRent,
+      vehiclefuel: carfuel,
+      vehicleseater: carseater,
+    );
+    await addHistory(historyA);
+  }
+
+// ================================saving datas to Customer Model
   Future<void> saveCus() async {
     final carname = carnameController.text.trim();
     final carReg = carRegController.text.trim();
@@ -388,20 +437,21 @@ class _AddCustomerState extends State<AddCustomer> {
     }
 
     final customerA = CustomerModel(
-        carname: carname,
-        carReg: carReg,
-        carDailyRent: carDailyrent,
-        customerName: customerName,
-        mobileNumber: mobileNumber,
-        licenseNumber: licenseNumber,
-        pickupdate: pickupdaten,
-        pickupTime: pickupTimen,
-        dropOffDate: dropOffDaten,
-        securityDeposit: securityDeposit,
-        selectedImage: imagepath,
-        carMonthlyRent: carMonthlyRent,
-        carfuel: carfuel,
-        carseater: carseater);
+      carname: carname,
+      carReg: carReg,
+      carDailyRent: carDailyrent,
+      customerName: customerName,
+      mobileNumber: mobileNumber,
+      licenseNumber: licenseNumber,
+      pickupdate: pickupdaten,
+      pickupTime: pickupTimen,
+      dropOffDate: dropOffDaten,
+      securityDeposit: securityDeposit,
+      selectedImage: imagepath,
+      carMonthlyRent: carMonthlyRent,
+      carfuel: carfuel,
+      carseater: carseater,
+    );
 
     await addCustomer(customerA);
 
