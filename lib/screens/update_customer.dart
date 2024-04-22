@@ -11,7 +11,7 @@ import 'package:intl/intl.dart';
 
 class Updatecustomer extends StatefulWidget {
   final CustomerModel customer;
-  const Updatecustomer({super.key, required this.customer });
+  const Updatecustomer({super.key, required this.customer});
 
   @override
   State<Updatecustomer> createState() => _MyWidgetState();
@@ -114,6 +114,7 @@ class _MyWidgetState extends State<Updatecustomer> {
               children: [
                 _buildSelectedImage(),
                 const Gap(15),
+                //======================== Car Name
                 CustomTextField(
                   labelText: 'Car Name',
                   fieldName: 'Car Name',
@@ -122,6 +123,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   enable: false,
                 ),
                 const Gap(15),
+                //================= Car reg Number
                 CustomTextField(
                   labelText: 'Car reg Number',
                   fieldName: 'Car Reg Number',
@@ -130,6 +132,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   enable: false,
                 ),
                 const Gap(15),
+                //========================= Daily Rent
                 CustomTextField(
                   enable: false,
                   labelText: 'Daily Rent',
@@ -138,6 +141,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   prefixIcon: Icons.currency_rupee,
                 ),
                 const Gap(15),
+                //====================== Customer Name
                 CustomTextField(
                   labelText: 'Customer Name',
                   fieldName: 'Customer Name',
@@ -146,6 +150,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   prefixIcon: Icons.person_outline,
                 ),
                 const Gap(15),
+                //============================ Mobile Number
                 CustomTextField(
                     labelText: 'Mobile Number',
                     fieldName: 'Mobile Number',
@@ -162,6 +167,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                       return null;
                     }),
                 const Gap(15),
+                //============================ License Number
                 CustomTextField(
                   controller: licenseNumberController,
                   labelText: 'License Number',
@@ -178,6 +184,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   },
                 ),
                 const Gap(15),
+                //============================ Pickup Date
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Pickup Date',
@@ -218,7 +225,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   },
                 ),
                 const Gap(15),
-                //=====================================Pickup Time
+                //===================================== Pickup Time
                 TextFormField(
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.access_time),
@@ -254,6 +261,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   },
                 ),
                 const Gap(15),
+                //=============================== Drop Off Date
                 TextFormField(
                   decoration: const InputDecoration(
                       labelText: 'Drop Off Date',
@@ -291,6 +299,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   },
                 ),
                 const Gap(15),
+                //===================== Security Deposit
                 CustomTextField(
                   labelText: 'Security Deposit',
                   fieldName: 'Security Deposit',
@@ -299,6 +308,7 @@ class _MyWidgetState extends State<Updatecustomer> {
                   prefixIcon: Icons.safety_check_outlined,
                 ),
                 const Gap(15),
+                //================= UPDATE DETAILS Button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

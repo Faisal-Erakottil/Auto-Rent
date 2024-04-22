@@ -53,27 +53,29 @@ class UpdatecarState extends State<Updatecar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //=================== AppBar
       appBar: AppBar(
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(10),
-            ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(10),
           ),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
-            ),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
           ),
-          centerTitle: true,
-          title: CustomText(
-            text: "UPDATE CAR",
-            fontWeight: FontWeight.w600,
-          ),
-          backgroundColor: CustomColor.black),
+        ),
+        centerTitle: true,
+        title: CustomText(
+          text: "UPDATE CAR",
+          fontWeight: FontWeight.w600,
+        ),
+        backgroundColor: CustomColor.black,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -94,6 +96,7 @@ class UpdatecarState extends State<Updatecar> {
                         color: CustomColor.white,
                         borderRadius: BorderRadius.circular(10),
                       ),
+                      //=================== image 
                       child: Stack(
                         children: [
                           if (selectedImage != null)

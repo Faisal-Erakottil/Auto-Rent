@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, use_super_parameters
-
 import 'dart:io';
 
 import 'package:autorent/dataModels/car_model.dart';
@@ -80,8 +78,8 @@ class _AddCarState extends State<AddCar> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
-                        //border: Border.all(width: .5, color: Colors.black),
                       ),
+                      //=============================Add Image
                       child: Stack(
                         children: [
                           if (imagepath != null) ...[
@@ -110,6 +108,7 @@ class _AddCarState extends State<AddCar> {
                   ),
                 ),
                 Gap(15),
+                //==============================================Car Name
                 CustomTextField(
                   labelText: 'Car Name',
                   fieldName: 'Car Name',
@@ -118,6 +117,7 @@ class _AddCarState extends State<AddCar> {
                   prefixIcon: Icons.directions_car_outlined,
                 ),
                 const Gap(15),
+                //===================================Registration Number
                 CustomTextField(
                   labelText: 'Registration Number',
                   fieldName: 'Registration Number',
@@ -126,6 +126,7 @@ class _AddCarState extends State<AddCar> {
                   prefixIcon: Icons.pin_outlined,
                 ),
                 const Gap(15),
+                //=========================================Fuel DropDown
                 customDropdownField(
                   labelText: 'Fuel',
                   hintText: 'Fuel',
@@ -139,6 +140,7 @@ class _AddCarState extends State<AddCar> {
                   },
                 ),
                 const Gap(15),
+                //========================================Seats DropDown
                 customDropdownField(
                   labelText: 'Seater',
                   hintText: 'Seater',
@@ -152,6 +154,7 @@ class _AddCarState extends State<AddCar> {
                   },
                 ),
                 const Gap(15),
+                //============================================Daily Rent
                 CustomTextField(
                   labelText: 'Daily Rent',
                   fieldName: 'Daily Rent',
@@ -160,6 +163,7 @@ class _AddCarState extends State<AddCar> {
                   prefixIcon: Icons.currency_rupee,
                 ),
                 const Gap(15),
+                //========================================== Monthly Rent
                 CustomTextField(
                   labelText: 'Monthly Rent',
                   fieldName: 'Monthly Rent',
@@ -168,6 +172,7 @@ class _AddCarState extends State<AddCar> {
                   prefixIcon: Icons.paid_outlined,
                 ),
                 const Gap(15),
+                //============================= Custom Save Details Button
                 customButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
@@ -190,6 +195,7 @@ class _AddCarState extends State<AddCar> {
     );
   }
 
+//================================image picker
   Future<void> pickImageFromGallery() async {
     final returnedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -202,6 +208,7 @@ class _AddCarState extends State<AddCar> {
     }
   }
 
+//==================================saving collected Details to CarModel
   Future<void> saveDetails() async {
     final vehiclename = vehiclenameController.text.trim();
     final vehicleReg = vehicleRegController.text.trim();

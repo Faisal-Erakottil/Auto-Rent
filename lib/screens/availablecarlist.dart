@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, unused_local_variable
-
 import 'dart:io';
 
 import 'package:autorent/dataModels/box.dart';
@@ -42,7 +40,6 @@ class _AvailableCarsState extends State<AvailableCars> {
             return ListView.builder(
               itemCount: data.length,
               itemBuilder: ((context, int index) {
-                bool isLastItem = index == data.length - 1;
                 return Padding(
                   padding: EdgeInsets.all(5),
                   //==============================onTap Activity
@@ -145,7 +142,7 @@ class _AvailableCarsState extends State<AvailableCars> {
                                 ),
                               ],
                             ),
-                            //===========================
+                            //============================ UI bottum part
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: SizedBox(

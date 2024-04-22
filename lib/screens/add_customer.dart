@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
-
 import 'dart:io';
 
 import 'package:autorent/dataModels/box.dart';
@@ -47,10 +45,9 @@ class _AddCustomerState extends State<AddCustomer> {
       carRegController.text = widget.selectedCar!.vehicleReg;
       selectedImage = widget.selectedCar!.selectedImage;
       carrentcontroller.text = widget.selectedCar!.dailyrent;
-      // monthlyrentController.text = widget.selectedCar!.monthlyrent;
     }
   }
-
+//====================================== Image
   Widget _buildSelectedImage() {
     return SizedBox(
       height: 150,
@@ -80,6 +77,7 @@ class _AddCustomerState extends State<AddCustomer> {
         builder: (context, box, _) {
           return Scaffold(
             backgroundColor: Colors.white,
+            //============================== AppBar
             appBar: AppBar(
               backgroundColor: Colors.black,
               shape: const RoundedRectangleBorder(
@@ -110,8 +108,10 @@ class _AddCustomerState extends State<AddCustomer> {
                   key: formKey,
                   child: Column(
                     children: [
+                      //========================= selected image
                       _buildSelectedImage(),
                       const Gap(15),
+                      //=============================== Car Name
                       CustomTextField(
                         labelText: 'Car Name',
                         fieldName: 'Car Name',
@@ -121,6 +121,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         enable: false,
                       ),
                       const Gap(15),
+                      //============================= Daily Rent
                       CustomTextField(
                         enable: false,
                         labelText: 'Daily Rent',
@@ -129,6 +130,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         prefixIcon: Icons.currency_rupee,
                       ),
                       const Gap(15),
+                      //========================= Car reg Number
                       CustomTextField(
                         labelText: 'Car reg Number',
                         fieldName: 'Car Reg Number',
@@ -138,6 +140,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         enable: false,
                       ),
                       const Gap(15),
+                      //=========================== customer Name
                       CustomTextField(
                         labelText: 'customer Name',
                         fieldName: 'customer Name',
@@ -153,6 +156,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         },
                       ),
                       const Gap(15),
+                      //========================== Mobile Number
                       CustomTextField(
                           labelText: 'Mobile Number',
                           fieldName: 'Mobile Number',
@@ -169,6 +173,7 @@ class _AddCustomerState extends State<AddCustomer> {
                             return null;
                           }),
                       const Gap(15),
+                      //========================== License Number
                       CustomTextField(
                         controller: licenseNumberController,
                         labelText: 'License Number',
@@ -190,7 +195,6 @@ class _AddCustomerState extends State<AddCustomer> {
                       TextFormField(
                         style: TextStyle(color: CustomColor.black),
                         decoration: InputDecoration(
-                          //icon: Icon(Icons.calendar_today_rounded),
                           labelText: 'Pickup Date',
                           hintText: 'Pickup Date',
                           filled: true,
@@ -229,6 +233,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         },
                       ),
                       const Gap(15),
+                      //================================ Pickup Time
                       TextFormField(
                         style: TextStyle(color: CustomColor.black),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -268,6 +273,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         },
                       ),
                       const Gap(15),
+                      //===================================== Drop Off Date
                       TextFormField(
                         style: TextStyle(color: CustomColor.black),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -307,6 +313,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         },
                       ),
                       const Gap(15),
+                      //=================================== Security Deposit
                       CustomTextField(
                         labelText: 'Security Deposit',
                         fieldName: 'Security Deposit',
@@ -322,6 +329,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         },
                       ),
                       const Gap(15),
+                      //============================SAVE DETAILS Button
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

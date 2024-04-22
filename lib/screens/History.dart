@@ -110,6 +110,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
+                                    //=================== vehicleReg
                                     Padding(
                                       padding: const EdgeInsets.only(
                                         left: 15,
@@ -121,6 +122,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                         size: 16,
                                       ),
                                     ),
+                                    //================= customer Name
                                     Row(
                                       children: [
                                         CustomText(
@@ -134,6 +136,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                   ],
                                 ),
                               ),
+                              //===================== selectedImage
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -152,6 +155,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                   )
                                 ],
                               ),
+                              //======================== vehiclename
                               Row(
                                 children: [
                                   Column(
@@ -168,6 +172,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                           size: 18,
                                         ),
                                       ),
+                                      //=================== pickupdate
                                       Row(
                                         children: [
                                           SizedBox(width: 15),
@@ -180,7 +185,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                       ),
                                     ],
                                   ),
-                                  Gap(10),
+                                  const Gap(10),
+                                  //===================== dropOffDate
                                   Row(
                                     children: [
                                       Padding(
@@ -193,6 +199,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                           size: 16,
                                         ),
                                       ),
+                                      //================== DailyRent
                                       Padding(
                                         padding: const EdgeInsets.only(
                                             left: 35, top: 22),

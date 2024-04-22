@@ -31,7 +31,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
   final securityDepositController = TextEditingController();
   String? selectedImage;
   File? imagepath;
-
+  //====================================image UI
   Widget _buildSelectedImage() {
     return SizedBox(
       height: 220,
@@ -57,27 +57,29 @@ class _CustomerDetailsState extends State<CustomerDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //============================= AppBar
       appBar: AppBar(
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(20),
-            ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20),
           ),
-          leading: IconButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              )),
-          centerTitle: true,
-          title: CustomText(
-            text: "CUSTOMER DETAILS",
-            size: 18,
-            fontWeight: FontWeight.bold,
-          ),
-          backgroundColor: CustomColor.black),
+        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            )),
+        centerTitle: true,
+        title: CustomText(
+          text: "CUSTOMER DETAILS",
+          size: 18,
+          fontWeight: FontWeight.bold,
+        ),
+        backgroundColor: CustomColor.black,
+      ),
       body: ValueListenableBuilder<Box<CustomerModel>>(
         valueListenable: Boxes.getCustomerData().listenable(),
         builder:
@@ -85,6 +87,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
           return SingleChildScrollView(
             child: Column(
               children: [
+                //======================Selected image
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: _buildSelectedImage(),
@@ -100,6 +103,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 15),
+                      //============================ Customer Name
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -117,6 +121,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                         ],
                       ),
                       const SizedBox(height: 15),
+                      //============================ Rent out car
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -131,6 +136,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                         ],
                       ),
                       const SizedBox(height: 15),
+                      //============================ Mobile number
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -144,6 +150,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                         ],
                       ),
                       const SizedBox(height: 15),
+                      //============================ License number
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -157,6 +164,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                         ],
                       ),
                       const SizedBox(height: 15),
+                      //============================ Pickup date
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -171,6 +179,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                         ],
                       ),
                       const SizedBox(height: 15),
+                      //============================== Pickup time
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -185,6 +194,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                         ],
                       ),
                       const SizedBox(height: 15),
+                      //=============================== Drop off date
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -199,11 +209,12 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                         ],
                       ),
                       const SizedBox(height: 15),
+                      //============================ Security deposit
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const CustomText(
-                            text: "Security deposit received",
+                            text: "Security deposit",
                             color: CustomColor.blue,
                             fontWeight: FontWeight.bold,
                           ),
@@ -216,6 +227,7 @@ class _CustomerDetailsState extends State<CustomerDetails> {
                   ),
                 ),
                 const SizedBox(height: 20),
+                //============================== Update Button
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

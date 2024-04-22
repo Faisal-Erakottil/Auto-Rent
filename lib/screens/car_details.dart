@@ -31,8 +31,7 @@ class _MyWidgetState extends State<cardetails> {
   String? selectedImage;
   String? selectedFuel;
   String? selectedSeat;
-  // get pickImageFromGallery => null;
-
+//================================= Selected Image
   Widget _buildSelectedImage() {
     return SizedBox(
       height: 220,

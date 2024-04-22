@@ -51,6 +51,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        //============================= image
                         CircleAvatar(
                           radius: 36,
                           backgroundImage: userDetails!.image.isNotEmpty
@@ -60,20 +61,24 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         const SizedBox(width: 10),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          //==========================Details
                           children: [
                             const SizedBox(height: 20),
+                            //===============name
                             CustomText(
                               text: ' ${userDetails.name}',
                               size: 20,
                               color: CustomColor.blue,
                               fontWeight: FontWeight.bold,
                             ),
+                            //===============mobile
                             CustomText(
                               text: ' ${userDetails.mobile}',
                               size: 20,
                               color: CustomColor.blue,
                               fontWeight: FontWeight.w600,
                             ),
+                            //===============email
                             CustomText(
                               text: ' ${userDetails.email}',
                               size: 20,
@@ -138,6 +143,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ],
               );
             } else {
+              //==================== User Details
               CustomList(
                 leadingIcon: Icons.person,
                 title: "User Details",
@@ -153,9 +159,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
               return Column(
                 children: [
                   const CustomText(
-                    text: "fill up and enjoy",
+                    text: "Fill up and Enjoy",
                     color: CustomColor.black,
                   ),
+                  //====================User Details
                   CustomList(
                     leadingIcon: Icons.person,
                     title: "User Details",

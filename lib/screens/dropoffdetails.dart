@@ -54,7 +54,6 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
     pickupdate = TextEditingController();
     pickupTime = TextEditingController();
     dropOffDate = TextEditingController();
-    //droppOfftime = TextEditingController();
     securityDepositController = TextEditingController();
     monthlyrentController = TextEditingController();
     carseater = TextEditingController();
@@ -68,7 +67,6 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
     licenseNumberController.text = widget.customer.licenseNumber;
     selectedImage = widget.customer.selectedImage;
     dropOffDate.text = widget.customer.dropOffDate;
-    //droppOfftime.text = widget.customer.dropOfftime;
     pickupdate.text = widget.customer.pickupdate;
     pickupTime.text = widget.customer.pickupTime;
     securityDepositController.text = widget.customer.securityDeposit;
@@ -131,7 +129,8 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
               valueListenable: Boxes.getData().listenable(),
               builder: (context, carBox, _) {
                 return Scaffold(
-                  backgroundColor: const Color.fromARGB(255, 240, 251, 252),
+                  backgroundColor: CustomColor.white,
+                  //==================== AppBar
                   appBar: AppBar(
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.vertical(
@@ -163,14 +162,16 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                           children: [
                             _buildSelectedImage(),
                             const Gap(15),
+                            //====================== car name
                             CustomTextField(
                               labelText: 'car name',
-                              fieldName: 'carname',
+                              fieldName: 'car name',
                               controller: carnameController,
                               enable: false,
                               prefixIcon: Icons.directions_car_outlined,
                             ),
                             const Gap(15),
+                            //==================== Daily Rent
                             CustomTextField(
                               labelText: 'Daily Rent',
                               fieldName: 'Daily Rent',
@@ -179,6 +180,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               prefixIcon: Icons.currency_rupee_outlined,
                             ),
                             const Gap(15),
+                            //================= Car reg number
                             CustomTextField(
                               labelText: 'Car reg number',
                               fieldName: 'Car reg number',
@@ -187,6 +189,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               prefixIcon: Icons.pin_outlined,
                             ),
                             const Gap(15),
+                            //================= Customer Name
                             CustomTextField(
                               labelText: 'Customer Name',
                               fieldName: 'Customer Name',
@@ -195,6 +198,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               enable: false,
                             ),
                             const Gap(15),
+                            //================= Mobile Number
                             CustomTextField(
                               labelText: 'Mobile Number',
                               fieldName: 'Mobile Number',
@@ -203,6 +207,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               enable: false,
                             ),
                             const Gap(15),
+                            //================= License Number
                             CustomTextField(
                               labelText: 'License Number',
                               fieldName: 'License Number',
@@ -211,6 +216,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               prefixIcon: Icons.badge_outlined,
                             ),
                             const Gap(15),
+                            //==================== Pickup Date
                             CustomTextField(
                               labelText: 'Pickup Date',
                               fieldName: 'Pickup Date',
@@ -219,6 +225,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               prefixIcon: Icons.calendar_today_outlined,
                             ),
                             const Gap(15),
+                            //==================== Pickup Time
                             CustomTextField(
                               labelText: 'Pickup Time',
                               fieldName: 'Pickup Time',
@@ -227,6 +234,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               prefixIcon: Icons.schedule_outlined,
                             ),
                             const Gap(15),
+                            //================== Drop Off Date
                             CustomTextField(
                               labelText: 'Drop Off Date',
                               fieldName: 'Drop Off Date',
@@ -235,6 +243,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               prefixIcon: Icons.event_outlined,
                             ),
                             const Gap(15),
+                            //=============== Security Deposit
                             CustomTextField(
                               labelText: 'Security Deposit',
                               fieldName: 'Security Deposit',
@@ -243,6 +252,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               enable: false,
                             ),
                             const Gap(15),
+                            //=================== DropOff Time
                             TextFormField(
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
@@ -284,6 +294,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               },
                             ),
                             const Gap(15),
+                            //======================== Total Rent
                             Container(
                               alignment: Alignment.center,
                               padding: const EdgeInsets.all(10),
@@ -299,6 +310,7 @@ class _DropfofdetailsState extends State<Dropoffdetails> {
                               ),
                             ),
                             const Gap(20),
+                            //======================Drop off button
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [

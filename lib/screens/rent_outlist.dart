@@ -74,6 +74,7 @@ class _RentOutCarsState extends State<RentOutCars> {
                           ),
                         );
                       },
+                      //======================card
                       child: Card(
                         color: Colors.white,
                         child: SizedBox(
@@ -88,6 +89,7 @@ class _RentOutCarsState extends State<RentOutCars> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
+                                    //======================== carReg
                                     Padding(
                                       padding: const EdgeInsets.only(
                                         left: 15,
@@ -99,6 +101,7 @@ class _RentOutCarsState extends State<RentOutCars> {
                                         size: 16,
                                       ),
                                     ),
+                                    //=================== customerName
                                     Row(
                                       children: [
                                         CustomText(
@@ -112,6 +115,7 @@ class _RentOutCarsState extends State<RentOutCars> {
                                   ],
                                 ),
                               ),
+                              //======================== selectedImage
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -136,6 +140,7 @@ class _RentOutCarsState extends State<RentOutCars> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
+                                      //================ carname
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(left: 15),
@@ -146,6 +151,7 @@ class _RentOutCarsState extends State<RentOutCars> {
                                           size: 18,
                                         ),
                                       ),
+                                      //================ pickupdate
                                       Row(
                                         children: [
                                           SizedBox(width: 15),
@@ -159,6 +165,7 @@ class _RentOutCarsState extends State<RentOutCars> {
                                     ],
                                   ),
                                   Gap(10),
+                                  //=====================drop off button
                                   Column(
                                     children: [
                                       Padding(
