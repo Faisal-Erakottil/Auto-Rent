@@ -183,8 +183,7 @@ class _UserdetailsState extends State<Userdetails> {
                       );
                     }
                     saveDetails();
-
-                    // onAddSaveButtonClicked();
+                    //onAddSaveButtonClicked();
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
@@ -211,37 +210,43 @@ class _UserdetailsState extends State<Userdetails> {
     );
   }
 
-  Future<void> onAddSaveButtonClicked() async {
-    final _name = nameController.text.trim();
-    final _mobile = mobController.text.trim();
-    final _email = emailController.text.trim();
-    if (imagepath == null ||
-        _name.isEmpty ||
-        _mobile.isEmpty ||
-        _email.isEmpty) {
-      return;
-    }
-    final userDetails = UserModel(
-      name: _name,
-      mobile: _mobile,
-      email: _email,
-      image: imagepath?.path ?? "",
-    );
-    // Pass the user details back to the previous screen (HomeScreen)
-    Navigator.pop(context, userDetails);
-  }
+  // Future<void> onAddSaveButtonClicked() async {
+  //   final _name = nameController.text.trim();
+  //   final _mobile = mobController.text.trim();
+  //   final _email = emailController.text.trim();
+  //   if (imagepath == null ||
+  //       _name.isEmpty ||
+  //       _mobile.isEmpty ||
+  //       _email.isEmpty) {
+  //     return;
+  //   }
+  //   final userDetails = UserModel(
+  //     name: _name,
+  //     mobile: _mobile,
+  //     email: _email,
+  //     image: imagepath?.path ?? "",
+  //   );
+  //   // Pass the user details back to the previous screen (HomeScreen)
+  //   Navigator.pop(context, userDetails);
+  // }
 
   Future<void> saveDetails() async {
-    // onAddSaveButtonClicked();
+    //onAddSaveButtonClicked();
     final name = nameController.text.trim();
+    print(" hello ${name}");
     final mobile = mobController.text.trim();
+    print(" mobile ${mobile}");
     final email = emailController.text.trim();
-    if (imagepath == null || name.isEmpty || mobile.isEmpty || email.isEmpty) {
+    print(" email ${email}");
+    final image = imagepath;
+    if (image == null || name.isEmpty || mobile.isEmpty || email.isEmpty) {
       return;
     }
+    print(" image ${image}");
     // Save the input data to HiveBox
     final userDetails = UserModel(
       name: name,
+
       mobile: mobile,
       email: email,
       image: imagepath?.path ?? "",
@@ -249,5 +254,6 @@ class _UserdetailsState extends State<Userdetails> {
 
     await addUser(userDetails);
     getAllData();
+    
   }
 }

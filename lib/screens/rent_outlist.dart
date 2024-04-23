@@ -78,7 +78,7 @@ class _RentOutCarsState extends State<RentOutCars> {
                       child: Card(
                         color: Colors.white,
                         child: SizedBox(
-                          height: 230,
+                          height: 240,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -148,7 +148,7 @@ class _RentOutCarsState extends State<RentOutCars> {
                                           text: data[index].carname,
                                           fontWeight: FontWeight.bold,
                                           color: CustomColor.black,
-                                          size: 18,
+                                          size: 26,
                                         ),
                                       ),
                                       //================ pickupdate

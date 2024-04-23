@@ -20,6 +20,7 @@ Future<void> addUser(UserModel value) async {
   value.id = id;
   userNotifier.value.add(value);
   userNotifier.notifyListeners();
+  print("names ${value}");
 }
 
 Future<void> getAllData() async {
@@ -27,7 +28,7 @@ Future<void> getAllData() async {
   userNotifier.value.clear();
   userNotifier.value.addAll(userDB.values);
   for (var element in userDB.values) {
-    //print(element.name);
+    print(element.name);
   }
   print(userDB.values);
   userNotifier.notifyListeners();

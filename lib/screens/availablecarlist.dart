@@ -120,7 +120,7 @@ class _AvailableCarsState extends State<AvailableCars> {
                                 ),
                                 //===========================Rent Now Button
                                 Padding(
-                                  padding: EdgeInsets.only(left: 45.0, top: 5),
+                                  padding: EdgeInsets.only(left: 35.0, top: 5),
                                   child: SizedBox(
                                     width: 120,
                                     height: 35,

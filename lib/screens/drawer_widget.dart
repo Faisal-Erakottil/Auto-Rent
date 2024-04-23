@@ -10,6 +10,7 @@ import 'package:autorent/screens/user.dart';
 import 'package:autorent/widgets/custom_colors.dart';
 import 'package:autorent/widgets/custom_list.dart';
 import 'package:autorent/widgets/custom_text.dart';
+import 'package:gap/gap.dart';
 
 class CustomDrawer extends StatefulWidget {
   final UserModel? userDetails;
@@ -156,12 +157,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   );
                 },
               );
+
               return Column(
                 children: [
+                  const Gap(50),
                   const CustomText(
-                    text: "Fill up and Enjoy",
-                    color: CustomColor.black,
+                    text: " AUTO RENT ",
+                    color: CustomColor.blue,
+                    size: 22,
                   ),
+                  const Gap(30),
                   //====================User Details
                   CustomList(
                     leadingIcon: Icons.person,
@@ -175,6 +180,42 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       );
                     },
                   ),
+                  const Gap(10),
+                  CustomList(
+                    title: "History",
+                    leadingIcon: Icons.currency_rupee,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HistoryScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  const Gap(10),
+                  CustomList(
+                    title: "Settings",
+                    leadingIcon: Icons.settings,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SettingsScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 550),
+                  const Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      CustomText(
+                        text: "version 1.01",
+                        color: Colors.grey,
+                      ),
+                    ],
+                  )
                 ],
               );
             }
